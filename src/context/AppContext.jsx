@@ -19,9 +19,16 @@ export const AppContextProvider = ({ children }) => {
   const [Items, setItems] = useState();
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState({});
+  const [isTransactionSucces, setIsTransactionSucces] = useState(false);
 
   const currency = import.meta.env.VITE_CURRENCY;
 
+  const userIsExist = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setUser(true);
+    }
+  };
   const fetchProducts = async () => {
     try {
       const { data } = await axios.get("/product");
@@ -59,6 +66,7 @@ export const AppContextProvider = ({ children }) => {
   useEffect(() => {
     //setProducts((prev) => [...dummyProducts]);
     fetchProducts();
+    userIsExist();
   }, []);
   if (isSeller == false) {
     // localStorage.removeItem("token");
@@ -276,6 +284,8 @@ export const AppContextProvider = ({ children }) => {
     conditionQuantity,
     setconditionQuantity,
     getCart,
+    isTransactionSucces,
+    setIsTransactionSucces,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

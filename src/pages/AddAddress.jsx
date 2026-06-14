@@ -62,9 +62,13 @@ function AddAddress() {
       <p className="text-2xl text-gray-500">
         Add Shipping <span className="font-semibold text-primary">Address</span>{" "}
       </p>
-      <div className="flex flex-col-reverse justify-between mt-10 md:flex-row">
+      <div className="flex flex-col-reverse justify-between mt-4 md:flex-row">
         <div className="flex-1 max-w-md">
           <form onSubmit={onSubmitHandler} className="space-y-3 mt-6 text-sm">
+            <div className="grid grid-cols-2 gap-4 -my-0.5 text-gray-500">
+              <label>First Name:</label>
+              <label>Last Name:</label>
+            </div>
             <div className="grid grid-cols-2 gap-4">
               <InputField
                 handleChange={handleChange}
@@ -73,6 +77,7 @@ function AddAddress() {
                 type="text"
                 placeholder="First Name"
               />
+
               <InputField
                 handleChange={handleChange}
                 address={address}
@@ -81,6 +86,7 @@ function AddAddress() {
                 placeholder="Last Name"
               />
             </div>
+            <label className="text-gray-500">Email:</label>
             <InputField
               handleChange={handleChange}
               address={address}
@@ -88,6 +94,7 @@ function AddAddress() {
               type="email"
               placeholder="Email address"
             />
+            <label className="text-gray-500">Street:</label>
             <InputField
               handleChange={handleChange}
               address={address}
@@ -95,6 +102,10 @@ function AddAddress() {
               type="text"
               placeholder="Street"
             />
+            <div className="grid grid-cols-2 gap-4 -my-0.5 text-gray-500">
+              <label>City:</label>
+              <label>State:</label>
+            </div>
             <div className="grid grid-cols-2 gap-4">
               <InputField
                 handleChange={handleChange}
@@ -110,6 +121,10 @@ function AddAddress() {
                 type="text"
                 placeholder="State"
               />
+            </div>
+            <div className="grid grid-cols-2 gap-4 -my-0.5 text-gray-500">
+              <label>Zipcode:</label>
+              <label>Country:</label>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <InputField
@@ -127,6 +142,7 @@ function AddAddress() {
                 placeholder="Country"
               />
             </div>
+            <label className="text-gray-500">Phone Number:</label>
             <InputField
               handleChange={handleChange}
               address={address}
@@ -134,7 +150,13 @@ function AddAddress() {
               type="text"
               placeholder="Phone"
             />
-            <button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase">
+            <button
+              onClick={() => {
+                navigate(`/cart`);
+                scrollTo(0, 0);
+              }}
+              className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase"
+            >
               Save address
             </button>
           </form>

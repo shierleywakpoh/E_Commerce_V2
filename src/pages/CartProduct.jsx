@@ -22,6 +22,7 @@ function CartProduct() {
     currency,
     setconditionQuantity,
     axios,
+    setIsTransactionSucces,
 
     setCartItems,
   } = useAppContext();
@@ -80,7 +81,8 @@ function CartProduct() {
     if (!selectedAddress) {
       toast.error("Please select the address");
     }
-
+    console.log(selectedAddress);
+    console.log(selectedAddress.street);
     const newAddresss =
       selectedAddress.street +
       "," +
@@ -107,6 +109,7 @@ function CartProduct() {
           },
         }
       );
+      setIsTransactionSucces(true);
 
       if (paymentOption == "COD") {
         if (data.message == "sucessfully") {

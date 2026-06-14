@@ -5,7 +5,14 @@ import toast from "react-hot-toast";
 
 function MyOrders() {
   const [myOrders, setMyOrders] = useState([]);
-  const { currency, axios, cartItems, DeleteCard } = useAppContext();
+  const {
+    currency,
+    axios,
+    cartItems,
+    DeleteCard,
+    isTransactionSucces,
+    setIsTransactionSucces,
+  } = useAppContext();
   //const [newCartItems, setNewCartItems] = useState([]);
   let newCartItems;
 
@@ -31,10 +38,11 @@ function MyOrders() {
     }
   };
   const deleteCartItems = async () => {
-    
-    cartItems.map((value, index) => {
-      DeleteCard(value.id);
-    });
+    if (isTransactionSucces) {
+      cartItems.map((value, index) => {
+        DeleteCard(value.id);
+      });
+    }
   };
 
   useEffect(() => {
@@ -86,13 +94,19 @@ function MyOrders() {
                       <div className="flex flex-col mx-6">
                         <p>Name Product: {c.name}</p>
                         <p>Quantity: {c.quantity}</p>
-                        <p>Price: {c.quantity * c.offerprice}</p>
+                        <p>
+                          Price:{currency}
+                          {c.quantity * c.offerprice}
+                        </p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <p>Total Price: {a.price}</p>
+              <p>
+                Total Price: {currency}
+                {a.price}
+              </p>
             </div>
           ))}
         </div>

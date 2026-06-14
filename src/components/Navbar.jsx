@@ -17,15 +17,23 @@ const Navbar = () => {
     setSearchQuery,
     cartItems,
     totalQuantity,
+    setCartItems,
+    getCart,
   } = useAppContext();
   const logout = async () => {
     setUser(null);
+    setCartItems([]);
     localStorage.removeItem("token");
-    toast.success("Logout Successfully");
     navigate("/");
+
+    toast.success("Logout Successfully");
   };
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
+    if (token) {
+      getCart();
+    }
     if (searchQuery.length > 0) {
       navigate("/products");
     }

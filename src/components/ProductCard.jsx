@@ -15,10 +15,14 @@ function ProductCard({ value, index }) {
     products,
     navigate,
     setconditionQuantity,
+    isTransactionSucces,
+    setIsTransactionSucces,
   } = useAppContext();
 
   const cart = cartItems.find((item) => value.id == item.product_id);
-
+  useEffect(() => {
+    setIsTransactionSucces(false);
+  });
   return (
     <div className=" mt-5 flex flex-wrap justify-center gap-6">
       {value && (
