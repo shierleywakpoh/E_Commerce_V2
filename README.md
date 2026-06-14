@@ -29,10 +29,25 @@ A full-stack e-commerce application that allows users to browse products, manage
 ![Home Page](./ssimage/HomePage.png)
 
 ### Product Detail
-(gambar)
+![Product Detail](./ssimage/ProductDetail.png)
 
 ### Cart
-(gambar)
+![Cart](./ssimage/Cart.png)
 
-### Checkout
-(gambar)
+### Order History
+![Order History](./ssimage/OrderHistory.png)
+
+### Admin Dashboard
+![Admin Dashboard](./ssimage/AdminDashboard.png)
+
+## Architecture
+
+Frontend (React)
+↓
+Backend API (Express.js)
+↓
+PostgreSQL
+
+## Backend Repository
+
+[(link backend github)](https://github.com/shierleywakpoh/BE_ECommerce_V2)
