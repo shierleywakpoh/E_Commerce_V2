@@ -26,7 +26,7 @@ A full-stack e-commerce application that allows users to browse products, manage
 ## Screenshots
 
 ### Home Page
-(gambar)
+![Home Page](./ssimage/HomePage.png)
 
 ### Product Detail
 (gambar)
