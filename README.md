@@ -42,10 +42,8 @@ A full-stack e-commerce application that allows users to browse products, manage
 
 ## Architecture
 
-Frontend (React)
-↓
-Backend API (Express.js)
-↓
+Frontend (React)->
+Backend API (Express.js)->
 PostgreSQL
 
 ## Backend Repository
